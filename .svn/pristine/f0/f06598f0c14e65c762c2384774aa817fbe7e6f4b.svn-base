@@ -1,0 +1,52 @@
+
+[service]
+
+;; 程序每次执行的超时时间
+timeout	= 1800
+
+;; 发送邮件的账户、密码
+sendEmail = sendmail@rtbs.cn
+pwd = pX1tKE9v
+
+;; 超时后报警邮件的接收人
+recvEmail = zhangzhijian@rtbs.cn,huangrui@rtbs.cn
+
+;; 报警命令的路径
+mailBin = /usr/local/bin/sendEmail
+
+[import2db]
+
+;; logpath 要统计的日志目录
+logpath = ./tmp/import2db/source
+
+;; cachePath 统计用到的缓存目录
+tmppath = ./tmp/import2db/cache
+
+;; outpath 统计后结果存放目录
+outpath = ./tmp/import2db/result
+
+;; errpath 错误日志存放目录
+errpath = ./tmp/import2db/error
+
+;; redis集群
+redis = 127.0.0.1:6379
+
+;; 一次执行读日志文件个数
+readFileNum = 2000
+
+;; 源文件名的标示，为空时不处理，多个标示之间用","分割
+srcFileFlag = media_day,place_hour
+
+;; 文件个数超过限制，报警
+sourceFileLimitNum = 2000
+recvEmail = zhangzhijian@rtbs.cn,huangrui@rtbs.cn
+
+[db]
+host = localhost
+port = 3306
+user = adx
+pwd  = rtbs789
+name = adexchange
+
+;; mysql命令的路径
+mysqlBin = mysql
